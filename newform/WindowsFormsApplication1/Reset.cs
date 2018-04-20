@@ -37,5 +37,10 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("user not found");
             }
         }
+
+        private void lnkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

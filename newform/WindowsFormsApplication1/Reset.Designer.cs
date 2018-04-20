@@ -105,6 +105,7 @@
             this.lnkLogin.TabIndex = 8;
             this.lnkLogin.TabStop = true;
             this.lnkLogin.Text = "Login";
+            this.lnkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLogin_LinkClicked);
             // 
             // Reset
             // 

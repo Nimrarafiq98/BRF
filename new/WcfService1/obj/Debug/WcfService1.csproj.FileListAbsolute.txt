@@ -18,3 +18,8 @@ C:\Users\kaleem\Desktop\BUS\WcfService1\WcfService1\obj\Debug\WcfService1.dll
 C:\Users\kaleem\Desktop\BUS\WcfService1\WcfService1\obj\Debug\WcfService1.pdb
 C:\Users\kaleem\Desktop\BUS\WcfService1\WcfService1\bin\WcfService1.dll
 C:\Users\kaleem\Desktop\BUS\WcfService1\WcfService1\bin\WcfService1.pdb
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\new\WcfService1\bin\WcfService1.dll
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\new\WcfService1\bin\WcfService1.pdb
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.pdb

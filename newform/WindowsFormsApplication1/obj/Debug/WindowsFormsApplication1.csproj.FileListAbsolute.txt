@@ -23,3 +23,5 @@ C:\Users\kaleem\Desktop\BUS\WindowsFormsApplication1\WindowsFormsApplication1\ob
 C:\Users\kaleem\Desktop\BUS\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Registration.resources
 C:\Users\kaleem\Desktop\BUS\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\kaleem\Desktop\BUS\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Reset.resources
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\newform\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\MALIK SHAHBAZ\Desktop\BRF\newform\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe

@@ -44,6 +44,7 @@
             this.lblUsername.Size = new System.Drawing.Size(55, 13);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // lnklbllogin
             // 
@@ -64,6 +65,7 @@
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password";
+            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
             // cmdLogin
             // 
@@ -81,6 +83,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 4;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPassword
             // 
@@ -88,6 +91,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // Form1
             // 

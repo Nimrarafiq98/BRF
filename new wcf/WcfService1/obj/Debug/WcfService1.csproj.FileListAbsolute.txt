@@ -28,3 +28,8 @@ C:\Users\kaleem\Desktop\BRF\new\WcfService1\bin\WcfService1.pdb
 C:\Users\kaleem\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
 C:\Users\kaleem\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.dll
 C:\Users\kaleem\Desktop\BRF\new\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\bin\WcfService1.dll
+C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\bin\WcfService1.pdb
+C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.pdb

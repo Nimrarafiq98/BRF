@@ -21,6 +21,9 @@ namespace WcfService1
         bool reset(string username, string password, string ConfirmPassword);
 
         [OperationContract]
+        void addroute(string BusNumber, string RouteNumber);
+
+        [OperationContract]
         
         string GetData(int value);
 

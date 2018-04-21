@@ -9,3 +9,6 @@ c:\users\kaleem\documents\visual studio 2012\Projects\Forreset\Forreset\obj\Debu
 c:\users\kaleem\documents\visual studio 2012\Projects\Forreset\Forreset\obj\Debug\Forreset.exe
 c:\users\kaleem\documents\visual studio 2012\Projects\Forreset\Forreset\obj\Debug\Forreset.pdb
 c:\users\kaleem\documents\visual studio 2012\Projects\Forreset\Forreset\obj\Debug\Forreset.csprojResolveAssemblyReference.cache
+C:\Users\kaleem\Desktop\BRF\Forreset\Forreset\bin\Debug\Forreset.exe.config
+C:\Users\kaleem\Desktop\BRF\Forreset\Forreset\obj\Debug\Forreset.exe
+C:\Users\kaleem\Desktop\BRF\Forreset\Forreset\obj\Debug\Forreset.pdb

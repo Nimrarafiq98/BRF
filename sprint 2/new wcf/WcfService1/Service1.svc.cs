@@ -87,5 +87,9 @@ namespace WcfService1
 
 
         }
+        public List<Stops> getstops()
+        {
+            return Route.Mystops;
+        }
     }
     }

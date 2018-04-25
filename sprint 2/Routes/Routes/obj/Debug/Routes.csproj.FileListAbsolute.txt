@@ -26,3 +26,13 @@ C:\Users\kaleem\Desktop\BRF\Routes\Routes\obj\Debug\Routes.Addstop.resources
 C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\bin\Debug\Routes.exe.config
 C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.exe
 C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.pdb
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\bin\Debug\Routes.exe
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\bin\Debug\Routes.pdb
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.csprojResolveAssemblyReference.cache
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.Addnum.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.Addstop.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.Form1.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.login.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.Properties.Resources.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.Reset.resources
+C:\Users\kaleem\Desktop\BRF\sprint 2\Routes\Routes\obj\Debug\Routes.csproj.GenerateResource.Cache

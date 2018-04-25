@@ -123,6 +123,9 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Server\Route.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Server\Service1.wsdl" />
     <None Include="Web References\Server\Service1.xsd">
       <SubType>Designer</SubType>

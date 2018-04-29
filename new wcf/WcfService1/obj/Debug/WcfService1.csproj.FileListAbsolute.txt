@@ -33,3 +33,23 @@ C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\bin\WcfService1.pdb
 C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
 C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.dll
 C:\Users\kaleem\Desktop\BRF\new wcf\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\kaleem\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\kaleem\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\kaleem\Desktop\BRF\sprint 2\new wcf\WcfService1\bin\WcfService1.dll
+C:\Users\kaleem\Desktop\BRF\sprint 2\new wcf\WcfService1\bin\WcfService1.pdb
+C:\Users\kaleem\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\Muhammad Zaman\Desktop\BRF\sprint 2\new wcf\WcfService1\bin\WcfService1.dll
+C:\Users\Muhammad Zaman\Desktop\BRF\sprint 2\new wcf\WcfService1\bin\WcfService1.pdb
+C:\Users\Muhammad Zaman\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\Muhammad Zaman\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\Muhammad Zaman\Desktop\BRF\sprint 2\new wcf\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\kaleem\Desktop\BUS\new wcf\WcfService1\bin\WcfService1.dll
+C:\Users\kaleem\Desktop\BUS\new wcf\WcfService1\bin\WcfService1.pdb
+C:\Users\kaleem\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\kaleem\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\kaleem\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.pdb
+C:\Users\MALIK SHAHBAZ\Desktop\BUS\new wcf\WcfService1\bin\WcfService1.dll
+C:\Users\MALIK SHAHBAZ\Desktop\BUS\new wcf\WcfService1\bin\WcfService1.pdb
+C:\Users\MALIK SHAHBAZ\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\MALIK SHAHBAZ\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\MALIK SHAHBAZ\Desktop\BUS\new wcf\WcfService1\obj\Debug\WcfService1.pdb

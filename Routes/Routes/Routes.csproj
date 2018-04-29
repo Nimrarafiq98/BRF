@@ -52,6 +52,12 @@
     <Compile Include="Addnum.Designer.cs">
       <DependentUpon>Addnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Addstop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addstop.Designer.cs">
+      <DependentUpon>Addstop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </Compile>
     <EmbeddedResource Include="Addnum.resx">
       <DependentUpon>Addnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Addstop.resx">
+      <DependentUpon>Addstop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -114,6 +123,9 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Server\Route.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Server\Service1.wsdl" />
     <None Include="Web References\Server\Service1.xsd">
       <SubType>Designer</SubType>
@@ -123,6 +135,9 @@
     </None>
     <None Include="Web References\Server\Service11.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\Server\Stops.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

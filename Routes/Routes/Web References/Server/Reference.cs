@@ -37,6 +37,12 @@ namespace Routes.Server {
         
         private System.Threading.SendOrPostCallback addrouteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback addstopOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getstopsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getbusrouteOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetDataOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetDataUsingDataContractOperationCompleted;
@@ -90,6 +96,15 @@ namespace Routes.Server {
         
         /// <remarks/>
         public event addrouteCompletedEventHandler addrouteCompleted;
+        
+        /// <remarks/>
+        public event addstopCompletedEventHandler addstopCompleted;
+        
+        /// <remarks/>
+        public event getstopsCompletedEventHandler getstopsCompleted;
+        
+        /// <remarks/>
+        public event getbusrouteCompletedEventHandler getbusrouteCompleted;
         
         /// <remarks/>
         public event GetDataCompletedEventHandler GetDataCompleted;
@@ -224,6 +239,92 @@ namespace Routes.Server {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/addstop", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void addstop([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string StopNumber) {
+            this.Invoke("addstop", new object[] {
+                        StopNumber});
+        }
+        
+        /// <remarks/>
+        public void addstopAsync(string StopNumber) {
+            this.addstopAsync(StopNumber, null);
+        }
+        
+        /// <remarks/>
+        public void addstopAsync(string StopNumber, object userState) {
+            if ((this.addstopOperationCompleted == null)) {
+                this.addstopOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddstopOperationCompleted);
+            }
+            this.InvokeAsync("addstop", new object[] {
+                        StopNumber}, this.addstopOperationCompleted, userState);
+        }
+        
+        private void OnaddstopOperationCompleted(object arg) {
+            if ((this.addstopCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.addstopCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/getstops", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+        public Stops[] getstops() {
+            object[] results = this.Invoke("getstops", new object[0]);
+            return ((Stops[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getstopsAsync() {
+            this.getstopsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getstopsAsync(object userState) {
+            if ((this.getstopsOperationCompleted == null)) {
+                this.getstopsOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetstopsOperationCompleted);
+            }
+            this.InvokeAsync("getstops", new object[0], this.getstopsOperationCompleted, userState);
+        }
+        
+        private void OngetstopsOperationCompleted(object arg) {
+            if ((this.getstopsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getstopsCompleted(this, new getstopsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/getbusroute", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+        public Route[] getbusroute() {
+            object[] results = this.Invoke("getbusroute", new object[0]);
+            return ((Route[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getbusrouteAsync() {
+            this.getbusrouteAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getbusrouteAsync(object userState) {
+            if ((this.getbusrouteOperationCompleted == null)) {
+                this.getbusrouteOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetbusrouteOperationCompleted);
+            }
+            this.InvokeAsync("getbusroute", new object[0], this.getbusrouteOperationCompleted, userState);
+        }
+        
+        private void OngetbusrouteOperationCompleted(object arg) {
+            if ((this.getbusrouteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getbusrouteCompleted(this, new getbusrouteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string GetData(int value, [System.Xml.Serialization.XmlIgnoreAttribute()] bool valueSpecified) {
@@ -310,6 +411,28 @@ namespace Routes.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    public partial class Stops {
+        
+        private string stopName1Field;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StopName1 {
+            get {
+                return this.stopName1Field;
+            }
+            set {
+                this.stopName1Field = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
     public partial class CompositeType {
         
         private bool boolValueField;
@@ -347,6 +470,41 @@ namespace Routes.Server {
             }
             set {
                 this.stringValueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    public partial class Route {
+        
+        private string busNumber1Field;
+        
+        private string routeNumber1Field;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string BusNumber1 {
+            get {
+                return this.busNumber1Field;
+            }
+            set {
+                this.busNumber1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string RouteNumber1 {
+            get {
+                return this.routeNumber1Field;
+            }
+            set {
+                this.routeNumber1Field = value;
             }
         }
     }
@@ -426,6 +584,62 @@ namespace Routes.Server {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
     public delegate void addrouteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void addstopCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void getstopsCompletedEventHandler(object sender, getstopsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getstopsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getstopsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Stops[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Stops[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void getbusrouteCompletedEventHandler(object sender, getbusrouteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getbusrouteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getbusrouteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Route[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Route[])(this.results[0]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]

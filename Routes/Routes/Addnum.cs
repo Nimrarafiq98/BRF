@@ -22,6 +22,29 @@ namespace Routes
             Server.Service1 server = new Server.Service1();
             server.addroute(txtBusNumber.Text, txtRouteNumber.Text);
             MessageBox.Show("Bus number and route number has been added");
+
+            Server.Service1 myserver = new Server.Service1();
+            BindingSource bs = new BindingSource();
+            bs.DataSource = myserver.getbusroute();
+            dataGridView1.DataSource = bs;
+
+        }
+
+        private void lnkAddStops_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Addstop Addstop = new Addstop();
+            this.Hide();
+            Addstop.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Server.Service1 myserver = new Server.Service1();
+            if (e.ColumnIndex == 0)
+            {
+                Addstop addstop = new Addstop();
+                addstop.Show();
+            }
         }
     }
 }

@@ -26,11 +26,17 @@ namespace Routes
             if (isvalid)
             {
                 MessageBox.Show("valid user!");
+
+                Addnum Addnum = new Addnum();
+                this.Hide();
+                Addnum.Show();  
             }
             else
             {
                 MessageBox.Show("invalid user!");
             }
+
+            
             
         }
 
@@ -50,9 +56,12 @@ namespace Routes
 
         private void lnkAddnum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Addnum Addnum = new Addnum();
-            this.Hide();
-            Addnum.Show();
+          
+        }
+
+        private void nimraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

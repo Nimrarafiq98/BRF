@@ -30,5 +30,17 @@ namespace Routes
             this.Hide();
             login.Show();
         }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+            Form1 registration = new Form1();
+            this.Hide();
+            registration.Show();
+        }
     }
 }

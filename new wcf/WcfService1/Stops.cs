@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 namespace WcfService1
 {
     [DataContract]
-    public class RouteDL
+    public class Stops
     {
-        public static List<Route> myRoutes = new List<Route>();
+        private string StopName;
+        [DataMember]
+        public string StopName1
+        {
+            get { return StopName; }
+            set { StopName = value; }
+        }
+
     }
 }

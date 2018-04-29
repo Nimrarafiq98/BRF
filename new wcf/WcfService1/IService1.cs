@@ -25,6 +25,17 @@ namespace WcfService1
 
         [OperationContract]
         
+        void addstop(string StopNumber);
+
+
+        [OperationContract]
+
+        List<Stops> getstops();
+        [OperationContract]
+        List<Route> getbusroute();
+
+
+         [OperationContract]
         string GetData(int value);
 
         [OperationContract]

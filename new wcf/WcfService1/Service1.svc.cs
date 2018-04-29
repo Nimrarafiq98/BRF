@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
+
 namespace WcfService1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
@@ -76,6 +77,23 @@ namespace WcfService1
             route.RouteNumber1 = RouteNumber;
             RouteDL.myRoutes.Add(route);
         }
+         public void addstop(string StopName)
+        {
+            Stops c = new Stops();
+            c.StopName1 = StopName;
+
+            
+            Route.Mystops.Add(c);
+
+
+        }
+        public List<Stops> getstops()
+        {
+            return Route.Mystops;
+        }
+        public List<Route> getbusroute()
+        {
+            return RouteDL.myRoutes;
+        }
     }
-    }
-//sumeya
+}

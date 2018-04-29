@@ -43,9 +43,6 @@ namespace Routes
 
         private void lnkAddnum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Addnum Addnum = new Addnum();
-            this.Hide();
-            Addnum.Show();
         }
     }
 }

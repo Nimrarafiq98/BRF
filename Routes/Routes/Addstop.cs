@@ -50,5 +50,12 @@ namespace Routes
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Update update = new Update();
+            this.Hide();
+            update.Show();
+        }
     }
 }

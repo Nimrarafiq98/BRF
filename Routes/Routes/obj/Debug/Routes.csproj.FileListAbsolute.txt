@@ -73,3 +73,5 @@ C:\Users\MALIK SHAHBAZ\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Properties.Res
 C:\Users\MALIK SHAHBAZ\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Reset.resources
 C:\Users\MALIK SHAHBAZ\Desktop\BUS\Routes\Routes\obj\Debug\Routes.csproj.GenerateResource.Cache
 C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Addstop.resources
+C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Update.resources
+C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Newnum.resources

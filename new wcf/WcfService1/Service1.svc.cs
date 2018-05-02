@@ -86,6 +86,20 @@ namespace WcfService1
             return val;
             
         }
+
+        public bool updatestops(string stopname, string newstopname)
+        {
+            bool st = false;
+            foreach (Stops S in Route.Mystops)
+            {
+                if (S.StopName1 == stopname)
+                {
+                    S.StopName1 = newstopname;
+                    st = true;
+                }
+            }
+            return st;
+        }
         public void addroute(string BusNumber, string RouteNumber)
         {
             Route route = new Route();

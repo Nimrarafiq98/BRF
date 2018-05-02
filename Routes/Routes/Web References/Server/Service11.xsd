@@ -62,6 +62,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="updatestops">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stopname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newstopname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatestopsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatestopsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="addroute">
     <xs:complexType>
       <xs:sequence>

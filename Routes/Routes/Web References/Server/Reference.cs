@@ -37,6 +37,8 @@ namespace Routes.Server {
         
         private System.Threading.SendOrPostCallback updateOperationCompleted;
         
+        private System.Threading.SendOrPostCallback updatestopsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback addrouteOperationCompleted;
         
         private System.Threading.SendOrPostCallback addstopOperationCompleted;
@@ -100,6 +102,9 @@ namespace Routes.Server {
         
         /// <remarks/>
         public event updateCompletedEventHandler updateCompleted;
+        
+        /// <remarks/>
+        public event updatestopsCompletedEventHandler updatestopsCompleted;
         
         /// <remarks/>
         public event addrouteCompletedEventHandler addrouteCompleted;
@@ -251,6 +256,38 @@ namespace Routes.Server {
             if ((this.updateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.updateCompleted(this, new updateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/updatestops", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void updatestops([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string stopname, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string newstopname, out bool updatestopsResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool updatestopsResultSpecified) {
+            object[] results = this.Invoke("updatestops", new object[] {
+                        stopname,
+                        newstopname});
+            updatestopsResult = ((bool)(results[0]));
+            updatestopsResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void updatestopsAsync(string stopname, string newstopname) {
+            this.updatestopsAsync(stopname, newstopname, null);
+        }
+        
+        /// <remarks/>
+        public void updatestopsAsync(string stopname, string newstopname, object userState) {
+            if ((this.updatestopsOperationCompleted == null)) {
+                this.updatestopsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdatestopsOperationCompleted);
+            }
+            this.InvokeAsync("updatestops", new object[] {
+                        stopname,
+                        newstopname}, this.updatestopsOperationCompleted, userState);
+        }
+        
+        private void OnupdatestopsOperationCompleted(object arg) {
+            if ((this.updatestopsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updatestopsCompleted(this, new updatestopsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -686,6 +723,40 @@ namespace Routes.Server {
         
         /// <remarks/>
         public bool updateResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void updatestopsCompletedEventHandler(object sender, updatestopsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updatestopsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updatestopsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool updatestopsResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool updatestopsResultSpecified {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));

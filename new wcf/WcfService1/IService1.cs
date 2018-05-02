@@ -21,6 +21,8 @@ namespace WcfService1
         bool reset(string username, string password, string ConfirmPassword);
         [OperationContract]
         bool update(string busnumber, string routenumber, string newbusnum, string newroutenum);
+        [OperationContract]
+        bool updatestops(string stopname, string newstopname);
 
         [OperationContract]
         void addroute(string BusNumber, string RouteNumber);

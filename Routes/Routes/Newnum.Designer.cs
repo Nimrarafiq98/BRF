@@ -37,6 +37,7 @@
             this.txtOldroute = new System.Windows.Forms.TextBox();
             this.lblOldbus = new System.Windows.Forms.Label();
             this.lbloldroute = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdAddnum
@@ -48,7 +49,7 @@
             this.cmdAddnum.Name = "cmdAddnum";
             this.cmdAddnum.Size = new System.Drawing.Size(104, 38);
             this.cmdAddnum.TabIndex = 22;
-            this.cmdAddnum.Text = "Add";
+            this.cmdAddnum.Text = "Change";
             this.cmdAddnum.UseVisualStyleBackColor = false;
             this.cmdAddnum.Click += new System.EventHandler(this.cmdAddnum_Click);
             // 
@@ -128,11 +129,26 @@
             this.lbloldroute.TabIndex = 26;
             this.lbloldroute.Text = "Old RouteNumber";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Navy;
+            this.button1.Location = new System.Drawing.Point(403, 202);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 36);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "updateStop";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Newnum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(541, 308);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbloldroute);
             this.Controls.Add(this.lblOldbus);
             this.Controls.Add(this.txtOldroute);
@@ -161,5 +177,6 @@
         private System.Windows.Forms.TextBox txtOldroute;
         private System.Windows.Forms.Label lblOldbus;
         private System.Windows.Forms.Label lbloldroute;
+        private System.Windows.Forms.Button button1;
     }
 }

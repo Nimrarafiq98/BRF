@@ -75,3 +75,4 @@ C:\Users\MALIK SHAHBAZ\Desktop\BUS\Routes\Routes\obj\Debug\Routes.csproj.Generat
 C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Addstop.resources
 C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Update.resources
 C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Newnum.resources
+C:\Users\kaleem\Desktop\BUS\Routes\Routes\obj\Debug\Routes.Updatestop.resources

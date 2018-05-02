@@ -43,6 +43,14 @@ namespace Routes
              
          }
 
+         private void button1_Click(object sender, EventArgs e)
+         {
+
+             Updatestop updatestops = new Updatestop();
+             this.Hide();
+             updatestops.Show();
+         }
+
         
     }
 }

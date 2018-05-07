@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Route.cs" />
     <Compile Include="RouteDL.cs" />
+    <Compile Include="search.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

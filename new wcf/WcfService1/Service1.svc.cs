@@ -131,6 +131,45 @@ namespace WcfService1
             return val;
             
         }
+        public bool searchpick(string pickup)
+        {
+            bool pick= false;
+            foreach (Route R in RouteDL.myRoutes)
+            {
+                foreach (Stops S in R.Mystops)
+                {
+                    if (S.StopName1 == pickup)
+                    {
+                        search.picklist.Add(R);
+                         pick=true;
+                    }
+                }
+               
+            }
+            return pick;
+        }
+
+        public bool searchdown(string dropdown, string pickup)
+        {
+            bool down = false;
+            if (searchpick(pickup))
+            {
+                
+                foreach (Route R in search.picklist)
+                {
+                    foreach (Stops S in R.Mystops)
+                    {
+                        if (S.StopName1 == dropdown)
+                        {
+                            search.searchr.Add(R);
+                            down = true;
+                        }
+                    }
+                }
+                
+            }
+            return down;
+        }
          public Route find(string busnumber)
          { 
               foreach (Route R in RouteDL.myRoutes)
@@ -170,5 +209,9 @@ namespace WcfService1
 
 
 }
+        public List<Route> getsearch()
+        {
+            return search.searchr;        
+        }
         }
     }

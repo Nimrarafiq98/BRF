@@ -51,6 +51,12 @@ namespace Routes.Server {
         
         private System.Threading.SendOrPostCallback findOperationCompleted;
         
+        private System.Threading.SendOrPostCallback searchpickOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback searchdownOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getsearchOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetDataOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetDataUsingDataContractOperationCompleted;
@@ -125,6 +131,15 @@ namespace Routes.Server {
         
         /// <remarks/>
         public event findCompletedEventHandler findCompleted;
+        
+        /// <remarks/>
+        public event searchpickCompletedEventHandler searchpickCompleted;
+        
+        /// <remarks/>
+        public event searchdownCompletedEventHandler searchdownCompleted;
+        
+        /// <remarks/>
+        public event getsearchCompletedEventHandler getsearchCompleted;
         
         /// <remarks/>
         public event GetDataCompletedEventHandler GetDataCompleted;
@@ -479,6 +494,97 @@ namespace Routes.Server {
             if ((this.findCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.findCompleted(this, new findCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/searchpick", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void searchpick([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pickup, out bool searchpickResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool searchpickResultSpecified) {
+            object[] results = this.Invoke("searchpick", new object[] {
+                        pickup});
+            searchpickResult = ((bool)(results[0]));
+            searchpickResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void searchpickAsync(string pickup) {
+            this.searchpickAsync(pickup, null);
+        }
+        
+        /// <remarks/>
+        public void searchpickAsync(string pickup, object userState) {
+            if ((this.searchpickOperationCompleted == null)) {
+                this.searchpickOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchpickOperationCompleted);
+            }
+            this.InvokeAsync("searchpick", new object[] {
+                        pickup}, this.searchpickOperationCompleted, userState);
+        }
+        
+        private void OnsearchpickOperationCompleted(object arg) {
+            if ((this.searchpickCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.searchpickCompleted(this, new searchpickCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/searchdown", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void searchdown([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dropdown, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pickup, out bool searchdownResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool searchdownResultSpecified) {
+            object[] results = this.Invoke("searchdown", new object[] {
+                        dropdown,
+                        pickup});
+            searchdownResult = ((bool)(results[0]));
+            searchdownResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void searchdownAsync(string dropdown, string pickup) {
+            this.searchdownAsync(dropdown, pickup, null);
+        }
+        
+        /// <remarks/>
+        public void searchdownAsync(string dropdown, string pickup, object userState) {
+            if ((this.searchdownOperationCompleted == null)) {
+                this.searchdownOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchdownOperationCompleted);
+            }
+            this.InvokeAsync("searchdown", new object[] {
+                        dropdown,
+                        pickup}, this.searchdownOperationCompleted, userState);
+        }
+        
+        private void OnsearchdownOperationCompleted(object arg) {
+            if ((this.searchdownCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.searchdownCompleted(this, new searchdownCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/getsearch", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+        public Route[] getsearch() {
+            object[] results = this.Invoke("getsearch", new object[0]);
+            return ((Route[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getsearchAsync() {
+            this.getsearchAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getsearchAsync(object userState) {
+            if ((this.getsearchOperationCompleted == null)) {
+                this.getsearchOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetsearchOperationCompleted);
+            }
+            this.InvokeAsync("getsearch", new object[0], this.getsearchOperationCompleted, userState);
+        }
+        
+        private void OngetsearchOperationCompleted(object arg) {
+            if ((this.getsearchCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getsearchCompleted(this, new getsearchCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -958,6 +1064,100 @@ namespace Routes.Server {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Route)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void searchpickCompletedEventHandler(object sender, searchpickCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class searchpickCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal searchpickCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool searchpickResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool searchpickResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void searchdownCompletedEventHandler(object sender, searchdownCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class searchdownCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal searchdownCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool searchdownResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool searchdownResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void getsearchCompletedEventHandler(object sender, getsearchCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getsearchCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getsearchCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Route[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Route[])(this.results[0]));
             }
         }
     }

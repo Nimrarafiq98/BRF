@@ -69,5 +69,12 @@ namespace Routes
             this.Hide();
             update.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Search search = new Search();
+            this.Hide();
+            search.Show();
+        }
     }
 }

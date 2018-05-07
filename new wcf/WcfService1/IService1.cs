@@ -42,7 +42,12 @@ namespace WcfService1
         Route getdetail(int ID);
         [OperationContract]
         Route find(string busnumber);
-        
+        [OperationContract]
+        bool searchpick(string pickup);
+        [OperationContract]
+        bool searchdown(string dropdown,string pickup);
+        [OperationContract]
+        List<Route> getsearch();
 
 
          [OperationContract]

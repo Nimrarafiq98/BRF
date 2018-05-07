@@ -20,13 +20,18 @@ namespace Routes
         private void cmdAddStop_Click(object sender, EventArgs e)
         {
             Server.Service1 server = new Server.Service1();
-            server.addstop(txtStopName.Text);
-            MessageBox.Show("Stop has been added");
+            bool addstop;
+            bool addstoppassed;
+            server.addstop(textBox1.Text,txtStopName.Text,out addstop,out addstoppassed);
+            if (addstop)
+            {
+                MessageBox.Show("Stop has been added");
+            }
 
 
             Server.Service1 myserver = new Server.Service1();
             BindingSource bs = new BindingSource();
-            bs.DataSource = myserver.getstops();
+            bs.DataSource = myserver.getstops(textBox1.Text);
             dataGridView1.DataSource = bs;
 
         }

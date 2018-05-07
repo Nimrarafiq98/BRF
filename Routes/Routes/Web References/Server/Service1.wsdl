@@ -25,18 +25,6 @@
   <wsdl:message name="IService1_reset_OutputMessage">
     <wsdl:part name="parameters" element="tns:resetResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_update_InputMessage">
-    <wsdl:part name="parameters" element="tns:update" />
-  </wsdl:message>
-  <wsdl:message name="IService1_update_OutputMessage">
-    <wsdl:part name="parameters" element="tns:updateResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_updatestops_InputMessage">
-    <wsdl:part name="parameters" element="tns:updatestops" />
-  </wsdl:message>
-  <wsdl:message name="IService1_updatestops_OutputMessage">
-    <wsdl:part name="parameters" element="tns:updatestopsResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_addroute_InputMessage">
     <wsdl:part name="parameters" element="tns:addroute" />
   </wsdl:message>
@@ -67,6 +55,12 @@
   <wsdl:message name="IService1_getdetail_OutputMessage">
     <wsdl:part name="parameters" element="tns:getdetailResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_find_InputMessage">
+    <wsdl:part name="parameters" element="tns:find" />
+  </wsdl:message>
+  <wsdl:message name="IService1_find_OutputMessage">
+    <wsdl:part name="parameters" element="tns:findResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -92,14 +86,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/reset" message="tns:IService1_reset_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/resetResponse" message="tns:IService1_reset_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/update" message="tns:IService1_update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/updateResponse" message="tns:IService1_update_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="updatestops">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/updatestops" message="tns:IService1_updatestops_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/updatestopsResponse" message="tns:IService1_updatestops_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="addroute">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/addroute" message="tns:IService1_addroute_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/addrouteResponse" message="tns:IService1_addroute_OutputMessage" />
@@ -119,6 +105,10 @@
     <wsdl:operation name="getdetail">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getdetail" message="tns:IService1_getdetail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getdetailResponse" message="tns:IService1_getdetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/find" message="tns:IService1_find_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/findResponse" message="tns:IService1_find_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -151,24 +141,6 @@
     </wsdl:operation>
     <wsdl:operation name="reset">
       <soap:operation soapAction="http://tempuri.org/IService1/reset" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="update">
-      <soap:operation soapAction="http://tempuri.org/IService1/update" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="updatestops">
-      <soap:operation soapAction="http://tempuri.org/IService1/updatestops" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -214,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="getdetail">
       <soap:operation soapAction="http://tempuri.org/IService1/getdetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <soap:operation soapAction="http://tempuri.org/IService1/find" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -19,18 +19,22 @@ namespace Routes
 
         private void cmdChange_Click(object sender, EventArgs e)
         {
-            Server.Service1 server = new Server.Service1();
-            bool updatestops;
-            bool updatestopsPassed;
-            server.updatestops(txtOldstopname.Text, txtnewstopname.Text, out updatestops, out updatestopsPassed);
-            if (updatestops)
-            {
-                MessageBox.Show("stop updated");
-            }
-            else
-            {
-                MessageBox.Show("stop not founded .Please enter valid stopname");
-            }
+        //    Server.Service1 server = new Server.Service1();
+        //    bool updatestops;
+        //    bool updatestopsPassed;
+        //    server.updatestops(txtOldstopname.Text, txtnewstopname.Text, out updatestops, out updatestopsPassed);
+        //    if (updatestops)
+        //    {
+        //        MessageBox.Show("stop updated");
+        //        Server.Service1 myserver = new Server.Service1();
+        //        BindingSource bs = new BindingSource();
+        //        bs.DataSource = myserver.getstops();
+        //        dataGridView1.DataSource = bs;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("stop not founded .Please enter valid stopname");
+        //    }
         }
     }
 }

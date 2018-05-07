@@ -136,6 +136,7 @@
             this.Controls.Add(this.lblBusNumber);
             this.Name = "Addnum";
             this.Text = "Addnum";
+            this.Load += new System.EventHandler(this.Addnum_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

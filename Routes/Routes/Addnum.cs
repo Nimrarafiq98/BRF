@@ -29,7 +29,7 @@ namespace Routes
             dataGridView1.DataSource = bs;
 
         }
-
+        // add
         private void lnkAddStops_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Addstop Addstop = new Addstop();
@@ -52,6 +52,11 @@ namespace Routes
             Update update = new Update();
             this.Hide();
             update.Show();
+        }
+
+        private void Addnum_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

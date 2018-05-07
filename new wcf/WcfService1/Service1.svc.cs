@@ -71,36 +71,36 @@ namespace WcfService1
             return find;
         }
 
-        public bool update(string busnumber, string routenumber, string newbusnum, string newroutenum)
+        //public bool update(string busnumber, string routenumber, string newbusnum, string newroutenum)
 
-        {
-            bool val = false;
-            foreach (Route R in RouteDL.myRoutes)
-            {
-                if ((R.BusNumber1 == busnumber) && (R.RouteNumber1 == routenumber))
-                {
-                    R.BusNumber1 = newbusnum;
-                    R.RouteNumber1 = newroutenum;
-                    val = true;
-                }}
-            return val;
+        //{
+        //    bool val = false;
+        //    foreach (Route R in RouteDL.myRoutes)
+        //    {
+        //        if ((R.BusNumber1 == busnumber) && (R.RouteNumber1 == routenumber))
+        //        {
+        //            R.BusNumber1 = newbusnum;
+        //            R.RouteNumber1 = newroutenum;
+        //            val = true;
+        //        }}
+        //    return val;
             
-        }
+        //}
 
-        public bool updatestops(string stopname, string newstopname)
-        {
-            bool st = false;
-            foreach (Stops S in Route.Mystops)
-            {
-                if (S.StopName1 == stopname)
-                {
-                    S.StopName1 = newstopname;
-                    st = true;
-                }
-            }
-            // stops add
-            return st;
-        }
+        //public bool updatestops(string stopname, string newstopname)
+        //{
+        //    bool st = false;
+        //    foreach (Stops S in Route.Mystops)
+        //    {
+        //        if (S.StopName1 == stopname)
+        //        {
+        //            S.StopName1 = newstopname;
+        //            st = true;
+        //        }
+        //    }
+        //    // stops add
+        //    return st;
+        //}
         public void addroute(string BusNumber, string RouteNumber)
         {
             Route route = new Route();
@@ -108,19 +108,47 @@ namespace WcfService1
             route.RouteNumber1 = RouteNumber;
             RouteDL.myRoutes.Add(route);
         }
-        public void addstop(string StopName)
+        public bool addstop(string busnumber,string StopName)
         {
-            Stops c = new Stops();
-            c.StopName1 = StopName;
-
-
-            Route.Mystops.Add(c);
-
+            
+            bool val = false;
+            foreach (Route R in RouteDL.myRoutes)
+            {
+                if ((R.BusNumber1 == busnumber))
+                {
+                   Stops c = new Stops();
+            c.StopName1=StopName;
+                    R.Mystops.Add(c);
+                    val=true;
+                }}
+            return val;
+            
+        }
+         public Route find(string busnumber)
+         { 
+              foreach (Route R in RouteDL.myRoutes)
+            {
+                if ((R.BusNumber1 == busnumber))
+                {
+                    return R;
+         }
+                
+            }
+              return null;
+            
 
         }
-        public List<Stops> getstops()
+        public List<Stops> getstops(string busnumber)
         {
-            return Route.Mystops;
+            
+             foreach (Route R in RouteDL.myRoutes)
+            {
+                if ((R.BusNumber1 == busnumber))
+                {
+                    return R.Mystops;
+                }
+        }
+             return null;
         }
         public List<Route> getbusroute()
         {
@@ -129,6 +157,11 @@ namespace WcfService1
         public Route getdetail(int ID)
         {
             return RouteDL.myRoutes[ID];
+
+
+
+
+
+}
         }
     }
-}

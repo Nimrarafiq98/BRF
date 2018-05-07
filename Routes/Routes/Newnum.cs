@@ -30,32 +30,32 @@ namespace Routes
         }
 
         private void cmdAddnum_Click(object sender, EventArgs e)
-        { //Server.Service1 server = new Server.Service1();
-            //   bool update;
-            //   bool updatePassed;
-            //   server.update(txtOldbus.Text, txtOldroute.Text, txtBusNumber.Text,txtRouteNumber.Text, out update, out updatePassed);
-            //   if (update)
-            //   {
-            //       MessageBox.Show("route updated");
-            //       Server.Service1 myserver = new Server.Service1();
-            //       BindingSource bs = new BindingSource();
-            //       bs.DataSource = myserver.getbusroute();
-            //       dataGridView1.DataSource = bs;
+        { Server.Service1 server = new Server.Service1();
+            bool update;
+            bool updatePassed;
+            server.update(txtOldbus.Text, txtOldroute.Text, txtBusNumber.Text, txtRouteNumber.Text, out update, out updatePassed);
+            if (update)
+            {
+                MessageBox.Show("route updated");
+                Server.Service1 myserver = new Server.Service1();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = myserver.getbusroute();
+                dataGridView1.DataSource = bs;
 
-            //   }
-            //   else
-            //   {
-            //       MessageBox.Show("route not founded .Please enter valid bus number and route number"); 
-            //   }
+            }
+            else
+            {
+                MessageBox.Show("route not founded .Please enter valid bus number and route number");
+            }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //Updatestop updatestops = new Updatestop();
-            //this.Hide();
-            //updatestops.Show();
+            Updatestop updatestops = new Updatestop();
+            this.Hide();
+            updatestops.Show();
         }
 
 

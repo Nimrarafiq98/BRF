@@ -71,36 +71,43 @@ namespace WcfService1
             return find;
         }
 
-        //public bool update(string busnumber, string routenumber, string newbusnum, string newroutenum)
+        public bool update(string busnumber, string routenumber, string newbusnum, string newroutenum)
+        {
+            bool val = false;
+            foreach (Route R in RouteDL.myRoutes)
+            {
+                if ((R.BusNumber1 == busnumber) && (R.RouteNumber1 == routenumber))
+                {
+                    R.BusNumber1 = newbusnum;
+                    R.RouteNumber1 = newroutenum;
+                    val = true;
+                }
+            }
+            return val;
 
-        //{
-        //    bool val = false;
-        //    foreach (Route R in RouteDL.myRoutes)
-        //    {
-        //        if ((R.BusNumber1 == busnumber) && (R.RouteNumber1 == routenumber))
-        //        {
-        //            R.BusNumber1 = newbusnum;
-        //            R.RouteNumber1 = newroutenum;
-        //            val = true;
-        //        }}
-        //    return val;
-            
-        //}
+        }
 
-        //public bool updatestops(string stopname, string newstopname)
-        //{
-        //    bool st = false;
-        //    foreach (Stops S in Route.Mystops)
-        //    {
-        //        if (S.StopName1 == stopname)
-        //        {
-        //            S.StopName1 = newstopname;
-        //            st = true;
-        //        }
-        //    }
-        //    // stops add
-        //    return st;
-        //}
+        public bool updatestops(string busnumber,string stopname, string newstopname)
+        {
+            bool val = false;
+            foreach (Route R in RouteDL.myRoutes)
+            {
+                if ((R.BusNumber1 == busnumber))
+                {
+                    foreach (Stops S in R.Mystops)
+                    {
+                        if (S.StopName1 == stopname)
+                        {
+                            S.StopName1 = newstopname;
+                            val = true;
+                        }
+                    }
+                }
+            }
+            return val;
+
+           
+        }
         public void addroute(string BusNumber, string RouteNumber)
         {
             Route route = new Route();

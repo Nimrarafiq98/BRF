@@ -41,6 +41,10 @@ namespace Routes.Server {
         
         private System.Threading.SendOrPostCallback addrouteOperationCompleted;
         
+        private System.Threading.SendOrPostCallback suggestOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback shortestOperationCompleted;
+        
         private System.Threading.SendOrPostCallback addstopOperationCompleted;
         
         private System.Threading.SendOrPostCallback getstopsOperationCompleted;
@@ -56,6 +60,8 @@ namespace Routes.Server {
         private System.Threading.SendOrPostCallback searchdownOperationCompleted;
         
         private System.Threading.SendOrPostCallback getsearchOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback distanceOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetDataOperationCompleted;
         
@@ -118,6 +124,12 @@ namespace Routes.Server {
         public event addrouteCompletedEventHandler addrouteCompleted;
         
         /// <remarks/>
+        public event suggestCompletedEventHandler suggestCompleted;
+        
+        /// <remarks/>
+        public event shortestCompletedEventHandler shortestCompleted;
+        
+        /// <remarks/>
         public event addstopCompletedEventHandler addstopCompleted;
         
         /// <remarks/>
@@ -140,6 +152,9 @@ namespace Routes.Server {
         
         /// <remarks/>
         public event getsearchCompletedEventHandler getsearchCompleted;
+        
+        /// <remarks/>
+        public event distanceCompletedEventHandler distanceCompleted;
         
         /// <remarks/>
         public event GetDataCompletedEventHandler GetDataCompleted;
@@ -344,28 +359,92 @@ namespace Routes.Server {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/suggest", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Route suggest() {
+            object[] results = this.Invoke("suggest", new object[0]);
+            return ((Route)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void suggestAsync() {
+            this.suggestAsync(null);
+        }
+        
+        /// <remarks/>
+        public void suggestAsync(object userState) {
+            if ((this.suggestOperationCompleted == null)) {
+                this.suggestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsuggestOperationCompleted);
+            }
+            this.InvokeAsync("suggest", new object[0], this.suggestOperationCompleted, userState);
+        }
+        
+        private void OnsuggestOperationCompleted(object arg) {
+            if ((this.suggestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.suggestCompleted(this, new suggestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/shortest", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void shortest([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string busnumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string routenumber, out bool shortestResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool shortestResultSpecified) {
+            object[] results = this.Invoke("shortest", new object[] {
+                        busnumber,
+                        routenumber});
+            shortestResult = ((bool)(results[0]));
+            shortestResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void shortestAsync(string busnumber, string routenumber) {
+            this.shortestAsync(busnumber, routenumber, null);
+        }
+        
+        /// <remarks/>
+        public void shortestAsync(string busnumber, string routenumber, object userState) {
+            if ((this.shortestOperationCompleted == null)) {
+                this.shortestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnshortestOperationCompleted);
+            }
+            this.InvokeAsync("shortest", new object[] {
+                        busnumber,
+                        routenumber}, this.shortestOperationCompleted, userState);
+        }
+        
+        private void OnshortestOperationCompleted(object arg) {
+            if ((this.shortestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.shortestCompleted(this, new shortestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/addstop", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void addstop([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string busnumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string StopNumber, out bool addstopResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool addstopResultSpecified) {
+        public void addstop([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string busnumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string StopNumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string longitude, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string latitude, out bool addstopResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool addstopResultSpecified) {
             object[] results = this.Invoke("addstop", new object[] {
                         busnumber,
-                        StopNumber});
+                        StopNumber,
+                        longitude,
+                        latitude});
             addstopResult = ((bool)(results[0]));
             addstopResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void addstopAsync(string busnumber, string StopNumber) {
-            this.addstopAsync(busnumber, StopNumber, null);
+        public void addstopAsync(string busnumber, string StopNumber, string longitude, string latitude) {
+            this.addstopAsync(busnumber, StopNumber, longitude, latitude, null);
         }
         
         /// <remarks/>
-        public void addstopAsync(string busnumber, string StopNumber, object userState) {
+        public void addstopAsync(string busnumber, string StopNumber, string longitude, string latitude, object userState) {
             if ((this.addstopOperationCompleted == null)) {
                 this.addstopOperationCompleted = new System.Threading.SendOrPostCallback(this.OnaddstopOperationCompleted);
             }
             this.InvokeAsync("addstop", new object[] {
                         busnumber,
-                        StopNumber}, this.addstopOperationCompleted, userState);
+                        StopNumber,
+                        longitude,
+                        latitude}, this.addstopOperationCompleted, userState);
         }
         
         private void OnaddstopOperationCompleted(object arg) {
@@ -589,6 +668,38 @@ namespace Routes.Server {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/distance", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void distance([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string pickup, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dropdown, out int distanceResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool distanceResultSpecified) {
+            object[] results = this.Invoke("distance", new object[] {
+                        pickup,
+                        dropdown});
+            distanceResult = ((int)(results[0]));
+            distanceResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void distanceAsync(string pickup, string dropdown) {
+            this.distanceAsync(pickup, dropdown, null);
+        }
+        
+        /// <remarks/>
+        public void distanceAsync(string pickup, string dropdown, object userState) {
+            if ((this.distanceOperationCompleted == null)) {
+                this.distanceOperationCompleted = new System.Threading.SendOrPostCallback(this.OndistanceOperationCompleted);
+            }
+            this.InvokeAsync("distance", new object[] {
+                        pickup,
+                        dropdown}, this.distanceOperationCompleted, userState);
+        }
+        
+        private void OndistanceOperationCompleted(object arg) {
+            if ((this.distanceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.distanceCompleted(this, new distanceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string GetData(int value, [System.Xml.Serialization.XmlIgnoreAttribute()] bool valueSpecified) {
@@ -675,9 +786,157 @@ namespace Routes.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    public partial class Route {
+        
+        private string busNumber1Field;
+        
+        private int distanceField;
+        
+        private bool distanceFieldSpecified;
+        
+        private Stops[] mystopsField;
+        
+        private string routeNumber1Field;
+        
+        private int timeField;
+        
+        private bool timeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string BusNumber1 {
+            get {
+                return this.busNumber1Field;
+            }
+            set {
+                this.busNumber1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Distance {
+            get {
+                return this.distanceField;
+            }
+            set {
+                this.distanceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DistanceSpecified {
+            get {
+                return this.distanceFieldSpecified;
+            }
+            set {
+                this.distanceFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Stops[] Mystops {
+            get {
+                return this.mystopsField;
+            }
+            set {
+                this.mystopsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string RouteNumber1 {
+            get {
+                return this.routeNumber1Field;
+            }
+            set {
+                this.routeNumber1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Time {
+            get {
+                return this.timeField;
+            }
+            set {
+                this.timeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TimeSpecified {
+            get {
+                return this.timeFieldSpecified;
+            }
+            set {
+                this.timeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
     public partial class Stops {
         
+        private int latitudeField;
+        
+        private bool latitudeFieldSpecified;
+        
+        private int longitude1Field;
+        
+        private bool longitude1FieldSpecified;
+        
         private string stopName1Field;
+        
+        /// <remarks/>
+        public int Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LatitudeSpecified {
+            get {
+                return this.latitudeFieldSpecified;
+            }
+            set {
+                this.latitudeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Longitude1 {
+            get {
+                return this.longitude1Field;
+            }
+            set {
+                this.longitude1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Longitude1Specified {
+            get {
+                return this.longitude1FieldSpecified;
+            }
+            set {
+                this.longitude1FieldSpecified = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -734,54 +993,6 @@ namespace Routes.Server {
             }
             set {
                 this.stringValueField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
-    public partial class Route {
-        
-        private string busNumber1Field;
-        
-        private Stops[] mystopsField;
-        
-        private string routeNumber1Field;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string BusNumber1 {
-            get {
-                return this.busNumber1Field;
-            }
-            set {
-                this.busNumber1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Stops[] Mystops {
-            get {
-                return this.mystopsField;
-            }
-            set {
-                this.mystopsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string RouteNumber1 {
-            get {
-                return this.routeNumber1Field;
-            }
-            set {
-                this.routeNumber1Field = value;
             }
         }
     }
@@ -929,6 +1140,66 @@ namespace Routes.Server {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
     public delegate void addrouteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void suggestCompletedEventHandler(object sender, suggestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class suggestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal suggestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Route Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Route)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void shortestCompletedEventHandler(object sender, shortestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class shortestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal shortestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool shortestResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool shortestResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
@@ -1158,6 +1429,40 @@ namespace Routes.Server {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Route[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    public delegate void distanceCompletedEventHandler(object sender, distanceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class distanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal distanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int distanceResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool distanceResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
             }
         }
     }

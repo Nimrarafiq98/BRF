@@ -91,11 +91,40 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="suggest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="suggestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="suggestResult" nillable="true" type="q1:Route" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shortest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="busnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="routenumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shortestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shortestResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="addstop">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="busnumber" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="StopNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -116,7 +145,7 @@
   <xs:element name="getstopsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getstopsResult" nillable="true" type="q1:ArrayOfStops" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getstopsResult" nillable="true" type="q2:ArrayOfStops" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -128,7 +157,7 @@
   <xs:element name="getbusrouteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getbusrouteResult" nillable="true" type="q2:ArrayOfRoute" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getbusrouteResult" nillable="true" type="q3:ArrayOfRoute" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,7 +171,7 @@
   <xs:element name="getdetailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getdetailResult" nillable="true" type="q3:Route" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getdetailResult" nillable="true" type="q4:Route" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -156,7 +185,7 @@
   <xs:element name="findResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="findResult" nillable="true" type="q4:Route" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="findResult" nillable="true" type="q5:Route" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -197,7 +226,22 @@
   <xs:element name="getsearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getsearchResult" nillable="true" type="q5:ArrayOfRoute" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="getsearchResult" nillable="true" type="q6:ArrayOfRoute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="distance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pickup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dropdown" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="distanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="distanceResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -218,14 +262,14 @@
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="composite" nillable="true" type="q6:CompositeType" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="composite" nillable="true" type="q7:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q7:CompositeType" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q8:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -115,7 +115,7 @@ namespace WcfService1
             route.RouteNumber1 = RouteNumber;
             RouteDL.myRoutes.Add(route);
         }
-        public bool addstop(string busnumber,string StopName)
+        public bool addstop(string busnumber,string StopName,string longitude,string latitude)
         {
             
             bool val = false;
@@ -125,6 +125,8 @@ namespace WcfService1
                 {
                    Stops c = new Stops();
             c.StopName1=StopName;
+            c.Longitude1 = int.Parse(longitude);
+            c.Latitude = int.Parse(latitude);
                     R.Mystops.Add(c);
                     val=true;
                 }}
@@ -170,6 +172,57 @@ namespace WcfService1
             }
             return down;
         }
+        
+
+        public int distance(string pickup,string dropdown)
+        {
+            foreach (Route R in search.searchr)
+            {
+                Stops A1;
+                Stops A2;
+                int x1 =0 ;
+                int y1 =0;
+                int x2 =0;
+                int y2 =0;
+
+
+                foreach (Stops S in R.Mystops)
+                {
+                    if (S.StopName1 == pickup)
+                    {
+                        A1 = S;
+                        x1 = S.Longitude1;
+                        y1 = S.Latitude;
+                    }
+                }
+                foreach (Stops s in R.Mystops)
+                {
+                    if (s.StopName1 == dropdown)
+                    {
+                        A2 = s;
+                        x2 = s.Longitude1;
+                        y2 = s.Latitude;
+                    }
+                }
+                int distance = (((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1))) ^ (1 / 2);
+                if (distance < 0)
+                {
+                    distance = distance * -1;
+                }
+
+                R.Distance = distance;
+                int speed = 45;
+                int time;
+                time = distance / speed;
+
+                R.Time = time;
+
+
+            }
+            return 0;
+
+        }
+      
          public Route find(string busnumber)
          { 
               foreach (Route R in RouteDL.myRoutes)
@@ -183,6 +236,38 @@ namespace WcfService1
               return null;
             
 
+        }
+        public Route suggest()
+        {
+            int min =100;
+            foreach ( Route R in search.searchr)
+            {
+                if (R.Time < min)
+                {
+                    min = R.Time;
+
+                }
+            }
+            foreach (Route R in search.searchr)
+            {
+                if (R.Time == min)
+                {
+                    search.shortest.Add(R);
+                }
+            }
+            return null;
+        }
+        public bool shortest(string busnumber, string routenumber)
+        {
+            bool find = true;
+            foreach (Route R in search.shortest)
+            {
+                
+                busnumber = R.BusNumber1;
+                routenumber = R.RouteNumber1;
+             
+            }
+            return find;
         }
         public List<Stops> getstops(string busnumber)
         {

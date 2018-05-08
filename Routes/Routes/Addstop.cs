@@ -22,7 +22,7 @@ namespace Routes
             Server.Service1 server = new Server.Service1();
             bool addstop;
             bool addstoppassed;
-            server.addstop(textBox1.Text,txtStopName.Text,out addstop,out addstoppassed);
+            server.addstop(textBox1.Text,txtStopName.Text,txtLongitude.Text,txtLatitude.Text,out addstop,out addstoppassed);
             if (addstop)
             {
                 MessageBox.Show("Stop has been added");

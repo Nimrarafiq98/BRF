@@ -35,6 +35,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblLongitude = new System.Windows.Forms.Label();
+            this.lblLatitude = new System.Windows.Forms.Label();
+            this.txtLongitude = new System.Windows.Forms.TextBox();
+            this.txtLatitude = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +89,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Navy;
-            this.button1.Location = new System.Drawing.Point(336, 231);
+            this.button1.Location = new System.Drawing.Point(347, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 36);
             this.button1.TabIndex = 19;
@@ -110,12 +114,48 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lblLongitude
+            // 
+            this.lblLongitude.AutoSize = true;
+            this.lblLongitude.Location = new System.Drawing.Point(565, 29);
+            this.lblLongitude.Name = "lblLongitude";
+            this.lblLongitude.Size = new System.Drawing.Size(54, 13);
+            this.lblLongitude.TabIndex = 22;
+            this.lblLongitude.Text = "Longitude";
+            // 
+            // lblLatitude
+            // 
+            this.lblLatitude.AutoSize = true;
+            this.lblLatitude.Location = new System.Drawing.Point(667, 28);
+            this.lblLatitude.Name = "lblLatitude";
+            this.lblLatitude.Size = new System.Drawing.Size(45, 13);
+            this.lblLatitude.TabIndex = 23;
+            this.lblLatitude.Text = "Latitude";
+            // 
+            // txtLongitude
+            // 
+            this.txtLongitude.Location = new System.Drawing.Point(516, 70);
+            this.txtLongitude.Name = "txtLongitude";
+            this.txtLongitude.Size = new System.Drawing.Size(100, 20);
+            this.txtLongitude.TabIndex = 24;
+            // 
+            // txtLatitude
+            // 
+            this.txtLatitude.Location = new System.Drawing.Point(638, 70);
+            this.txtLatitude.Name = "txtLatitude";
+            this.txtLatitude.Size = new System.Drawing.Size(100, 20);
+            this.txtLatitude.TabIndex = 25;
+            // 
             // Addstop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(521, 336);
+            this.ClientSize = new System.Drawing.Size(750, 336);
+            this.Controls.Add(this.txtLatitude);
+            this.Controls.Add(this.txtLongitude);
+            this.Controls.Add(this.lblLatitude);
+            this.Controls.Add(this.lblLongitude);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -140,5 +180,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblLongitude;
+        private System.Windows.Forms.Label lblLatitude;
+        private System.Windows.Forms.TextBox txtLongitude;
+        private System.Windows.Forms.TextBox txtLatitude;
     }
 }

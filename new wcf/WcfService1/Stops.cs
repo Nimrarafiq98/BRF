@@ -17,6 +17,20 @@ namespace WcfService1
             get { return StopName; }
             set { StopName = value; }
         }
+        private int Longitude;
+        [DataMember]
+        public int Longitude1
+        {
+            get { return Longitude; }
+            set { Longitude = value; }
+        }
+        private int latitude;
+        [DataMember]
+        public int Latitude
+        {
+            get { return latitude; }
+            set { latitude = value; }
+        }
 
     }
 }

@@ -33,6 +33,24 @@ namespace WcfService1
             get { return mystops; }
             set { mystops = value; }
         }
+        private int distance;
+        [DataMember]
+
+        public int Distance
+        {
+            get { return distance; }
+            set { distance = value; }
+        }
+        private int time;
+        [DataMember]
+
+        public int Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
+
+
 
     }
 }

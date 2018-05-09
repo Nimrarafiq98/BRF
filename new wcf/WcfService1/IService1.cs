@@ -13,10 +13,10 @@ namespace WcfService1
     public interface IService1
     {
         [OperationContract]
-        bool isvalid(string username, string password);
+        bool isvalid(string username, string password,string Type);
         [OperationContract]
 
-        void registration(string username, string password);
+        bool registration(string username, string password,string type);
         [OperationContract]
         bool reset(string username, string password, string ConfirmPassword);
         [OperationContract]
@@ -25,7 +25,7 @@ namespace WcfService1
         bool updatestops(string busnumber,string stopname, string newstopname);
 
         [OperationContract]
-        void addroute(string BusNumber, string RouteNumber);
+        bool addroute(string BusNumber, string RouteNumber);
         [OperationContract]
         Route suggest();
         [OperationContract]

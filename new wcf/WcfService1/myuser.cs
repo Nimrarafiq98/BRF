@@ -22,6 +22,14 @@ namespace WcfService1
             get { return password; }
             set { password = value; }
         }
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
         private string ConfirmPassword;
 
         public string ConfirmPassword1

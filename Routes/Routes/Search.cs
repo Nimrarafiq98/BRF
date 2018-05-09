@@ -41,6 +41,7 @@ namespace Routes
                     BindingSource bs = new BindingSource();
                     bs.DataSource = myserver.getsearch();
                     dataGridView1.DataSource = bs;
+                    
                 }
             }
             else
@@ -55,6 +56,11 @@ namespace Routes
             this.Hide();
             sug.Show();
          
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

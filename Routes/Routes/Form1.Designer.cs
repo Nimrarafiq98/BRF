@@ -32,11 +32,14 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.cmdRegister = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lnklbllogin = new System.Windows.Forms.LinkLabel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lblType = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,22 +84,6 @@
             this.lblPassword.TabIndex = 20;
             this.lblPassword.Text = "Password";
             // 
-            // lnklbllogin
-            // 
-            this.lnklbllogin.ActiveLinkColor = System.Drawing.Color.Navy;
-            this.lnklbllogin.AutoSize = true;
-            this.lnklbllogin.DisabledLinkColor = System.Drawing.Color.MidnightBlue;
-            this.lnklbllogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklbllogin.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lnklbllogin.LinkColor = System.Drawing.Color.Maroon;
-            this.lnklbllogin.Location = new System.Drawing.Point(71, 251);
-            this.lnklbllogin.Name = "lnklbllogin";
-            this.lnklbllogin.Size = new System.Drawing.Size(56, 24);
-            this.lnklbllogin.TabIndex = 19;
-            this.lnklbllogin.TabStop = true;
-            this.lnklbllogin.Text = "login";
-            this.lnklbllogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklbllogin_LinkClicked);
-            // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
@@ -133,18 +120,67 @@
             this.toolStripLabel2.Text = "Signup";
             this.toolStripLabel2.Click += new System.EventHandler(this.toolStripLabel2_Click);
             // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblType.ForeColor = System.Drawing.Color.Navy;
+            this.lblType.Location = new System.Drawing.Point(32, 187);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(47, 20);
+            this.lblType.TabIndex = 27;
+            this.lblType.Text = "Type";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(33, 238);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(83, 17);
+            this.radioButton1.TabIndex = 28;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Admin Login";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(33, 278);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(76, 17);
+            this.radioButton2.TabIndex = 29;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "User Login";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "admin",
+            "user"});
+            this.comboBox1.Location = new System.Drawing.Point(220, 186);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(425, 325);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.lblType);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.cmdRegister);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lnklbllogin);
             this.Controls.Add(this.lblUsername);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -161,11 +197,14 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button cmdRegister;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.LinkLabel lnklbllogin;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

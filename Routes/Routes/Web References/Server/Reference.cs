@@ -164,27 +164,29 @@ namespace Routes.Server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/isvalid", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void isvalid([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string username, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string password, out bool isvalidResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool isvalidResultSpecified) {
+        public void isvalid([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string username, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string password, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string Type, out bool isvalidResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool isvalidResultSpecified) {
             object[] results = this.Invoke("isvalid", new object[] {
                         username,
-                        password});
+                        password,
+                        Type});
             isvalidResult = ((bool)(results[0]));
             isvalidResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void isvalidAsync(string username, string password) {
-            this.isvalidAsync(username, password, null);
+        public void isvalidAsync(string username, string password, string Type) {
+            this.isvalidAsync(username, password, Type, null);
         }
         
         /// <remarks/>
-        public void isvalidAsync(string username, string password, object userState) {
+        public void isvalidAsync(string username, string password, string Type, object userState) {
             if ((this.isvalidOperationCompleted == null)) {
                 this.isvalidOperationCompleted = new System.Threading.SendOrPostCallback(this.OnisvalidOperationCompleted);
             }
             this.InvokeAsync("isvalid", new object[] {
                         username,
-                        password}, this.isvalidOperationCompleted, userState);
+                        password,
+                        Type}, this.isvalidOperationCompleted, userState);
         }
         
         private void OnisvalidOperationCompleted(object arg) {
@@ -196,31 +198,35 @@ namespace Routes.Server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/registration", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registration([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string username, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string password) {
-            this.Invoke("registration", new object[] {
+        public void registration([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string username, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string password, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string type, out bool registrationResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool registrationResultSpecified) {
+            object[] results = this.Invoke("registration", new object[] {
                         username,
-                        password});
+                        password,
+                        type});
+            registrationResult = ((bool)(results[0]));
+            registrationResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void registrationAsync(string username, string password) {
-            this.registrationAsync(username, password, null);
+        public void registrationAsync(string username, string password, string type) {
+            this.registrationAsync(username, password, type, null);
         }
         
         /// <remarks/>
-        public void registrationAsync(string username, string password, object userState) {
+        public void registrationAsync(string username, string password, string type, object userState) {
             if ((this.registrationOperationCompleted == null)) {
                 this.registrationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistrationOperationCompleted);
             }
             this.InvokeAsync("registration", new object[] {
                         username,
-                        password}, this.registrationOperationCompleted, userState);
+                        password,
+                        type}, this.registrationOperationCompleted, userState);
         }
         
         private void OnregistrationOperationCompleted(object arg) {
             if ((this.registrationCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.registrationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.registrationCompleted(this, new registrationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -330,10 +336,12 @@ namespace Routes.Server {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/addroute", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void addroute([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string BusNumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string RouteNumber) {
-            this.Invoke("addroute", new object[] {
+        public void addroute([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string BusNumber, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string RouteNumber, out bool addrouteResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool addrouteResultSpecified) {
+            object[] results = this.Invoke("addroute", new object[] {
                         BusNumber,
                         RouteNumber});
+            addrouteResult = ((bool)(results[0]));
+            addrouteResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
@@ -354,7 +362,7 @@ namespace Routes.Server {
         private void OnaddrouteOperationCompleted(object arg) {
             if ((this.addrouteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.addrouteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.addrouteCompleted(this, new addrouteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1033,7 +1041,37 @@ namespace Routes.Server {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
-    public delegate void registrationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void registrationCompletedEventHandler(object sender, registrationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class registrationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal registrationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool registrationResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool registrationResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
@@ -1139,7 +1177,37 @@ namespace Routes.Server {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
-    public delegate void addrouteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void addrouteCompletedEventHandler(object sender, addrouteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class addrouteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal addrouteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool addrouteResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool addrouteResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.79.0")]

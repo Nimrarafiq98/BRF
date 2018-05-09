@@ -41,6 +41,10 @@ namespace Routes
                 BindingSource bs = new BindingSource();
                 bs.DataSource = myserver.getbusroute();
                 dataGridView1.DataSource = bs;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
 
             }
             else

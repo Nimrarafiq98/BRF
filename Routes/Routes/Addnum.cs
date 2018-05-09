@@ -20,13 +20,27 @@ namespace Routes
         private void cmdAddnum_Click(object sender, EventArgs e)
         {
             Server.Service1 server = new Server.Service1();
-            server.addroute(txtBusNumber.Text, txtRouteNumber.Text);
-            MessageBox.Show("Bus number and route number has been added");
+            bool add;
+            bool addpassed;
+            server.addroute(txtBusNumber.Text, txtRouteNumber.Text,out add,out addpassed);
+            if (add)
+            {
+                MessageBox.Show("Bus number and route number has been added");
 
-            Server.Service1 myserver = new Server.Service1();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = myserver.getbusroute();
-            dataGridView1.DataSource = bs;
+
+                Server.Service1 myserver = new Server.Service1();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = myserver.getbusroute();
+                dataGridView1.DataSource = bs;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show(" enter something");
+            }
 
         }
         // add

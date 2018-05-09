@@ -31,7 +31,7 @@ namespace WcfService1
             }
             return composite;
         }
-        public bool isvalid(string username, string password)
+        public bool isvalid(string username, string password,string Type)
         {
             bool check = false;
             foreach (myuser u in data.datalist)
@@ -45,13 +45,23 @@ namespace WcfService1
 
             return check;
         }
-        public void registration(string username, string password)
+        public bool registration(string username, string password,string type)
         {
+            bool check = true;
             myuser user = new myuser();
-            user.Username = username;
-            user.Password = password;
-            data.datalist.Add(user);
-
+            if ((username == "") && (password == "")&&(type==""))
+            {
+                check = false;
+            }
+            else
+            {
+                user.Username = username;
+                user.Password = password;
+                user.Type = type;
+                data.datalist.Add(user);
+              
+            }
+            return check;
         }
         public bool reset(string username, string password, string ConfirmPassword)
         {
@@ -108,30 +118,43 @@ namespace WcfService1
 
            
         }
-        public void addroute(string BusNumber, string RouteNumber)
+        public bool addroute(string BusNumber, string RouteNumber)
         {
-            Route route = new Route();
-            route.BusNumber1 = BusNumber;
-            route.RouteNumber1 = RouteNumber;
-            RouteDL.myRoutes.Add(route);
+            bool check = true;
+            if ((BusNumber == "") && (RouteNumber == "")) { check = false; }
+            else
+            {
+                Route route = new Route();
+                route.BusNumber1 = BusNumber;
+                route.RouteNumber1 = RouteNumber;
+                RouteDL.myRoutes.Add(route);
+            }
+            return check;
         }
         public bool addstop(string busnumber,string StopName,string longitude,string latitude)
         {
-            
-            bool val = false;
-            foreach (Route R in RouteDL.myRoutes)
+            bool check = true;
+            if ((StopName == "") && (latitude == "") && (longitude == ""))
+            { check = false; }
+            else
             {
-                if ((R.BusNumber1 == busnumber))
+                bool val = false;
+                foreach (Route R in RouteDL.myRoutes)
                 {
-                   Stops c = new Stops();
-            c.StopName1=StopName;
-            c.Longitude1 = int.Parse(longitude);
-            c.Latitude = int.Parse(latitude);
-                    R.Mystops.Add(c);
-                    val=true;
-                }}
-            return val;
-            
+                    if ((R.BusNumber1 == busnumber))
+                    {
+                        Stops c = new Stops();
+                        c.StopName1 = StopName;
+                        c.Longitude1 = int.Parse(longitude);
+                        c.Latitude = int.Parse(latitude);
+                        R.Mystops.Add(c);
+                        val = true;
+                    }
+                }
+                return val;
+
+            }
+            return check;
         }
         public bool searchpick(string pickup)
         {
@@ -178,8 +201,7 @@ namespace WcfService1
         {
             foreach (Route R in search.searchr)
             {
-                Stops A1;
-                Stops A2;
+               
                 int x1 =0 ;
                 int y1 =0;
                 int x2 =0;
@@ -190,7 +212,6 @@ namespace WcfService1
                 {
                     if (S.StopName1 == pickup)
                     {
-                        A1 = S;
                         x1 = S.Longitude1;
                         y1 = S.Latitude;
                     }
@@ -199,7 +220,7 @@ namespace WcfService1
                 {
                     if (s.StopName1 == dropdown)
                     {
-                        A2 = s;
+                    
                         x2 = s.Longitude1;
                         y2 = s.Latitude;
                     }

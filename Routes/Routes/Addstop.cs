@@ -26,14 +26,18 @@ namespace Routes
             if (addstop)
             {
                 MessageBox.Show("Stop has been added");
+                Server.Service1 myserver = new Server.Service1();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = myserver.getstops(textBox1.Text);
+                dataGridView1.DataSource = bs;
+
             }
+            else
+            {
+                MessageBox.Show(" enter something");
 
-
-            Server.Service1 myserver = new Server.Service1();
-            BindingSource bs = new BindingSource();
-            bs.DataSource = myserver.getstops(textBox1.Text);
-            dataGridView1.DataSource = bs;
-
+            }
+          
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

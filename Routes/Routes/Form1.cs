@@ -20,8 +20,18 @@ namespace Routes
         private void cmdRegister_Click(object sender, EventArgs e)
         {
             Server.Service1 server = new Server.Service1();
-            server.registration(txtUsername.Text, txtPassword.Text);
-            MessageBox.Show("User Registered!");
+            bool registration;
+            bool registrationpassed;
+            server.registration(txtUsername.Text, txtPassword.Text,comboBox1.Text,out registration,out registrationpassed);
+            if (registration)
+            {
+
+                MessageBox.Show(" Registered!");
+            }
+            else
+            {
+                MessageBox.Show(" enter something");
+            }
         }
 
         private void lnklbllogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -41,6 +51,20 @@ namespace Routes
             Form1 registration = new Form1();
             this.Hide();
             registration.Show();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            login login = new login();
+            this.Hide();
+            login.Show();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            login login = new login();
+            this.Hide();
+            login.Show();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Routes
                     dataGridView1.DataSource = bs;
                     
                 }
-            }
+            } //jhjguxgs\ bind
             else
             {
                 MessageBox.Show("route not founded");
